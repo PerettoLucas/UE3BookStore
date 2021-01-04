@@ -1,0 +1,79 @@
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+</head>
+
+<div style="position: absolute; top: 20px; width: 100%; height: 90%">
+
+  <h1 style="font-size: 60px;
+             margin-left: 10%;
+             top: 50px ;
+             font-family: 'Staatliches', cursive;">
+    UE3BookStore</h1>
+
+  <table border="2px solid grey" style="margin-top: 40px;
+                margin-left: 10% ;
+                font-size: 20px;
+                width: 80%;
+                border-collapse: separate;
+                border-spacing: 0 20px" >
+
+    <tr>
+      <td style="width: 65%;"> <span style="background-color: red; border-radius: 5px; padding: 5px">DELETE</span> /books </td>
+      <td style="text-align: center;"> <div style="padding: 10px ;border: 2px solid red;">Reset store to initial state</div>  </td>
+    </tr>
+
+    <tr>
+      <td style="width: 65%;"> <span style="background-color: blue; border-radius: 5px; padding: 5px">GET</span> /books </td>
+      <td style="text-align: center;"> <div style="padding: 10px ;border: 2px solid blue;">Get all books</div>  </td>
+    </tr>
+
+    <tr>
+      <td style="width: 65%;"> <span style="background-color: blue; border-radius: 5px; padding: 5px">GET</span> /books/search/[searchTerm] </td>
+      <td style="text-align: center;"> <div style="padding: 10px ;border: 2px solid blue;">Get all books matching the term</div>   </td>
+    </tr>
+
+
+    <tr>
+      <td style="width: 65%;"> <span style="background-color: green; border-radius: 5px; padding: 5px">POST</span> /book </td>
+      <td style="text-align: center;"> <div style="padding: 10px ;border: 2px solid green;">Creates a new (random) book</div>  </td>
+    </tr>
+
+    <tr>
+      <td style="width: 65%;"> <span style="background-color: red; border-radius: 5px; padding: 5px">DELETE</span> /book/[ISBN] </td>
+      <td style="text-align: center;"> <div style="padding: 10px ;border: 2px solid red;">Deletes a book</div>  </td>
+    </tr>
+
+    <tr>
+      <td style="width: 65%;"> <span style="background-color: blue; border-radius: 5px; padding: 5px">GET</span> /book/[ISBN] </td>
+      <td style="text-align: center;"> <div style="padding: 10px ;border: 2px solid blue;">Returns a single book by ISBN</div>  </td>
+    </tr>
+
+    <tr>
+      <td style="width: 65%;"> <span style="background-color: darkred; border-radius: 5px; padding: 5px">PUT</span> /book/[ISBN] </td>
+      <td style="text-align: center;"> <div style="padding: 10px ;border: 2px solid darkred;">Updates an existing book</div>  </td>
+    </tr>
+
+    <tr>
+      <td style="width: 65%;"> <span style="background-color: blue; border-radius: 5px; padding: 5px">GET</span> /book/[ISBN]/check </td>
+      <td style="text-align: center;"> <div style="padding: 10px ;border: 2px solid blue;">Return wether ISBN exists or not</div>  </td>
+    </tr>
+
+    <tr>
+      <td style="width: 65%;"> <span style="background-color: green; border-radius: 5px; padding: 5px">POST</span> /book/[ISBN]/rate </td>
+      <td style="text-align: center;"> <div style="padding: 10px ;border: 2px solid green;">Updates rating of a book to a given value</div>  </td>
+    </tr>
+
+  </table>
+
+  <div id="Ausgabebereich" style="margin-left: 10%">
+
+    <h1>Ausgabebereich :</h1>
+
+
+
+  </div>
+
+
+</div>
+

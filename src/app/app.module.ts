@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { BookStoreServiceTestComponentComponent } from './book-store-service-test-component/book-store-service-test-component.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BookStoreServiceTestComponentComponent
   ],
   imports: [
     BrowserModule,
