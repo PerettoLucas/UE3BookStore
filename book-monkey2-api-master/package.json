@@ -20,15 +20,15 @@
   },
   "license": "MIT",
   "dependencies": {
-    "cron": "1.2.1",
-    "restify": "4.3.0",
-    "forever": "~0.15.3",
-    "lodash": "~4.17.4",
-    "typescript": "2.2.2",
     "@types/cron": "1.2.0",
+    "@types/lodash": "4.14.59",
     "@types/node": "6.0.53",
     "@types/restify": "2.0.42",
-    "@types/lodash": "4.14.59"
+    "cron": "1.2.1",
+    "forever": "~0.15.3",
+    "lodash": "^4.17.20",
+    "restify": "4.3.0",
+    "typescript": "2.2.2"
   },
   "keywords": [
     "demo",
@@ -36,5 +36,8 @@
     "crud",
     "restify",
     "backend"
-  ]
+  ],
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }
