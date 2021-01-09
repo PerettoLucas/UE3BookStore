@@ -5,6 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { BookStoreServiceTestComponentComponent } from './book-store-service-test-component/book-store-service-test-component.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+import {matFormFieldAnimations, MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { BookStoreServiceTestComponentComponent } from './book-store-service-tes
   imports: [
     BrowserModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
