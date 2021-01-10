@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import {Book} from '../shared/book';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 import {BookFactory} from '../shared/book-factory';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class BookStoreServiceService {
 
   constructor(private http: HttpClient) { }
 
-  resetStore(): Observable<any> {
+  resetStore(): Observable<HttpResponse<any>> {
     return this.http.delete<any>(`${this.URL}/books`, { observe: 'response' });
   }
 
@@ -25,11 +25,11 @@ export class BookStoreServiceService {
     return this.http.get<Book[]>(`${this.URL}/books/search/${searchTerm}`);
   }
 
-  createBook(): Observable<any> {
-    return this.http.post<Book>(`${this.URL}/book`, BookFactory.random(), {observe: 'response'});
+  createBook(book: Book): Observable<HttpResponse<any>> {
+    return this.http.post<Book>(`${this.URL}/book`, book, {observe: 'response'});
   }
 
-  deleteBook(isbn: string): Observable<any> {
+  deleteBook(isbn: string): Observable<HttpResponse<any>> {
     return this.http.delete<Book>(`${this.URL}/book/${isbn}`, {observe: 'response'});
   }
 
@@ -37,16 +37,16 @@ export class BookStoreServiceService {
     return this.http.get<Book>(`${this.URL}/book/${isbn}`);
   }
 
-  updateBook(book): void {
-
+  updateBook(book: Book): Observable<HttpResponse<any>> {
+    return this.http.put(`${this.URL}/book/${book.isbn}`, book, {observe: 'response'});
   }
 
-  checkBook(isbn): void {
-
+  checkBook(isbn: string): Observable<HttpResponse<any>> {
+    return this.http.get<any>(`${this.URL}/book/${isbn}/check`);
   }
 
-  rateBook(isbn, rating): void {
-
+  rateBook(isbn: string, rating: string): Observable<HttpResponse<any>> {
+    return this.http.post<Book>(`${this.URL}/book/${isbn}/rate`, { rating: 'rating'}, {observe: 'response'});
   }
 
   /*

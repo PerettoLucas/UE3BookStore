@@ -3,6 +3,7 @@ import {HttpClient, HttpClientModule, HttpErrorResponse, HttpResponse} from '@an
 import {Book} from '../../shared/book';
 import {BookStoreServiceService} from '../book-store-service.service';
 import {Observable} from 'rxjs';
+import {BookFactory} from '../../shared/book-factory';
 
 
 
@@ -16,6 +17,9 @@ export class BookStoreServiceTestComponentComponent implements OnInit {
   public books: Array<Book> ;
   public error: HttpErrorResponse;
   public response: HttpResponse<Book>;
+  public book: Book;
+  public checkString: string;
+  private ranBook: Book;
 
   constructor(private http: HttpClient, private bss: BookStoreServiceService) { }
 
@@ -52,7 +56,7 @@ export class BookStoreServiceTestComponentComponent implements OnInit {
   createBook(): void {
     this.clearView();
 
-    this.bss.createBook().subscribe(
+    this.bss.createBook(BookFactory.random()).subscribe(
       value => this.response = value,
       error => this.error = error
     );
@@ -71,27 +75,48 @@ export class BookStoreServiceTestComponentComponent implements OnInit {
     this.clearView();
 
     this.bss.getBook(isbn).subscribe(
-      value => this.books[0] = value,
+      response => this.book = response,
       error1 => this.error = error1
     );
   }
 
-  updateBook(book): void {
+  updateBook(isbn: string): void {
     this.clearView();
+    this.ranBook = BookFactory.random();
+    this.ranBook.isbn = isbn;
 
+    this.bss.updateBook(this.ranBook).subscribe(
+      value => this.response = value,
+      error1 => this.error = error1
+    );
   }
 
-  checkBook(isbn): void {
+  checkBook(isbn: string): void {
     this.clearView();
 
+    this.bss.checkBook(isbn).subscribe(
+      value => {
+        this.response = value;
+      },
+      error1 => this.error = error1
+    );
   }
 
-  rateBook(isbn, rating): void {
+  rateBook(isbn: string, rating: string): void {
     this.clearView();
 
+    this.bss.rateBook(isbn, rating).subscribe(
+      value => this.response = value,
+      error1 => this.error = error1
+    );
   }
 
   clearView(): void {
+
+    if (this.book != null) {
+      this.book = null;
+    }
+
     if (this.books != null) {
       this.books = null;
     }
@@ -105,4 +130,5 @@ export class BookStoreServiceTestComponentComponent implements OnInit {
     }
 
   }
+
 }
