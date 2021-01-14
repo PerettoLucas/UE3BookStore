@@ -45,8 +45,8 @@ export class BookStoreServiceService {
     return this.http.get<any>(`${this.URL}/book/${isbn}/check`);
   }
 
-  rateBook(isbn: string, rating: string): Observable<HttpResponse<any>> {
-    return this.http.post<Book>(`${this.URL}/book/${isbn}/rate`, { rating: 'rating'}, {observe: 'response'});
+  rateBook(isbn: string, rating: number): Observable<HttpResponse<any>> {
+    return this.http.post<Book>(`${this.URL}/book/${isbn}/rate`, { rating: `${rating}`}, {observe: 'response'});
   }
 
   /*

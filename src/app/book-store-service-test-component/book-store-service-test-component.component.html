@@ -118,7 +118,7 @@
           <input matInput placeholder="ISBN" #ISBN5>
         </mat-form-field>
         <mat-form-field style="margin-left: 20px">
-          <input matInput placeholder="rating" #ratinginput>
+          <input matInput placeholder="rating" type="number" #ratinginput>
         </mat-form-field>
       </td>
       <td style="text-align: center;" (click)="rateBook(ISBN5.value, ratinginput.value.toString())">

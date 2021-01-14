@@ -102,7 +102,7 @@ export class BookStoreServiceTestComponentComponent implements OnInit {
     );
   }
 
-  rateBook(isbn: string, rating: string): void {
+  rateBook(isbn: string, rating: number): void {
     this.clearView();
 
     this.bss.rateBook(isbn, rating).subscribe(
